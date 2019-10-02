@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Weather from "./components/Weather";
+import Weather from './conatiner/Weather';
 class App extends React.Component {
-  render() {
-    return <Weather />;
-  }
+   render() {
+      return <Weather />;
+   }
 }
 export default App;
