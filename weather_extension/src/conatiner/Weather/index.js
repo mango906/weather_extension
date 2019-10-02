@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import ListView from "./../../components/ListView";
@@ -10,10 +10,23 @@ const Weather = () => {
    const [text, setText] = useState("");
    const [value, setValue] = useState("");
 
+   useEffect(() => {
+      chrome.storage.sync.get("locate", data => {
+         if (Object.keys(data).length !== 0) fetchData(data.locate);
+      });
+   }, []);
+
    const submit = () => {
+      fetchData(text);
+      chrome.storage.sync.set({ locate: text }, function() {});
+   };
+
+   const fetchData = text => {
       axios.post("http://localhost:4000", { place: text }).then(res => {
-         console.log(res);
-         setValue(res.data);
+         if (res.status === 200) {
+            console.log(res);
+            setValue(res.data);
+         }
       });
    };
 
@@ -24,6 +37,12 @@ const Weather = () => {
 
          {value && (
             <div>
+               <div
+                  className="txt-bold"
+                  style={{ fontSize: "16px", padding: "10px" }}
+               >
+                  {value.current}
+               </div>
                <div className="now">
                   <img src={getWeatherImg(value.todayCondition[0], "big")} />
                   <div>

@@ -1,15 +1,17 @@
 {
-  "manifest_version": 2,
-  "name": "간편한 날씨 위젯",
-  "version": "1.0.1",
+   "manifest_version": 2,
+   "name": "간편한 날씨 위젯",
+   "version": "1.0.1",
 
-  "description": "간편한 날씨 위젯",
-  "icons": {},
+   "description": "간편한 날씨 위젯",
+   "icons": {},
 
-  "sidebar_action": {
-    "default_page": "index.html",
-    "default_title": "간-편...",
-    "use_navigation_bar": false,
-    "mobile_user_agent": true
-  }
+   "permissions": ["storage"],
+
+   "sidebar_action": {
+      "default_page": "index.html",
+      "default_title": "간-편...",
+      "use_navigation_bar": false,
+      "mobile_user_agent": true
+   }
 }
