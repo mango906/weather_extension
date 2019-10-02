@@ -1,0 +1,17 @@
+.txt-bold {
+   font-weight: bold;
+}
+
+.now {
+   display: flex;
+   justify-content: space-around;
+
+   &-temp {
+      font-size: 3rem;
+      font-weight: 400;
+   }
+
+   &-dust {
+      display: grid;
+   }
+}
