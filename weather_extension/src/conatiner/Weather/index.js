@@ -26,12 +26,18 @@ const Weather = () => {
             <div>
                <div className="now">
                   <img src={getWeatherImg(value.todayCondition[0], "big")} />
-                  <div className="now-temp">
-                     {value.now} <span style={{ fontSize: "1.5rem" }}>℃</span>
+                  <div>
+                     <span className="now-temp">
+                        {value.now}
+                        <span style={{ fontSize: "1.5rem" }}>℃</span>
+                     </span>
+                     {value.tmiData.map((el, i) => (
+                        <div key={i}>{el}</div>
+                     ))}
                   </div>
                   <div className="now-dust">
                      {value.dustData.map((el, i) => (
-                        <div>
+                        <div key={i}>
                            <div>{el.name}</div>
                            <div style={{ color: getDustStatus(el.status) }}>
                               {el.detail}
