@@ -24,8 +24,10 @@ const Weather = () => {
    const fetchData = text => {
       axios.post("http://localhost:4000", { place: text }).then(res => {
          if (res.status === 200) {
-            console.log(res);
             setValue(res.data);
+         } else if (res.status === 404) {
+            console.log(res);
+            setValue();
          }
       });
    };
@@ -34,6 +36,8 @@ const Weather = () => {
       <>
          <input onChange={e => setText(e.target.value)} value={text}></input>
          <button onClick={submit}>전송</button>
+
+         {!value && <div>데이터가 엄서요</div>}
 
          {value && (
             <div>

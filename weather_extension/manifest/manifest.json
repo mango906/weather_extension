@@ -10,7 +10,8 @@
 
    "sidebar_action": {
       "default_page": "index.html",
-      "default_title": "간-편...",
+      "default_icon": "icons/icon.png",
+      "default_title": "간편...",
       "use_navigation_bar": false,
       "mobile_user_agent": true
    }

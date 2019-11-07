@@ -29,6 +29,11 @@ app.post("/", (req, res) => {
     const today = $(".today_area .info_list.weather_condition._tabContent");
     const now = $(".today_area .todaytemp").text();
 
+    if (!now) {
+      res.status(404).send({ message: "no data" });
+      return;
+    }
+
     const current = $(".api_title").text();
 
     const todayTmp = textToArray(
@@ -63,7 +68,7 @@ app.post("/", (req, res) => {
       tmiData
     };
 
-    res.send(todayData);
+    res.status(200).send(todayData);
   });
 });
 
